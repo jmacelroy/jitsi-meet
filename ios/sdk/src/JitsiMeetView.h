@@ -1,5 +1,6 @@
 /*
- * Copyright @ 2017-present Atlassian Pty Ltd
+ * Copyright @ 2018-present 8x8, Inc.
+ * Copyright @ 2017-2018 Atlassian Pty Ltd
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,8 +22,6 @@
 
 @interface JitsiMeetView : UIView
 
-@property (class, copy, nonatomic, nullable) NSString *conferenceActivityType;
-
 @property (copy, nonatomic, nullable) NSURL *defaultURL;
 
 @property (nonatomic, nullable, weak) id<JitsiMeetViewDelegate> delegate;
@@ -31,26 +30,6 @@
 
 @property (nonatomic) BOOL welcomePageEnabled;
 
-+             (BOOL)application:(UIApplication *_Nonnull)application
-  didFinishLaunchingWithOptions:(NSDictionary *_Nonnull)launchOptions;
-
-+    (BOOL)application:(UIApplication * _Nonnull)application
-  continueUserActivity:(NSUserActivity * _Nonnull)userActivity
-    restorationHandler:(void (^ _Nullable)(NSArray * _Nullable))restorationHandler;
-
-+ (BOOL)application:(UIApplication *)app
-            openURL:(NSURL *)url
-            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options;
-
-+ (BOOL)application:(UIApplication * _Nonnull)application
-            openURL:(NSURL * _Nonnull)URL
-  sourceApplication:(NSString * _Nullable)sourceApplication
-         annotation:(id _Nullable)annotation __deprecated;
-
-- (void)loadURL:(NSURL * _Nullable)url;
-
-- (void)loadURLObject:(NSDictionary * _Nullable)urlObject;
-
-- (void)loadURLString:(NSString * _Nullable)urlString;
+- (void)loadURL:(NSDictionary * _Nullable)urlObject;
 
 @end
